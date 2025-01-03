@@ -1,0 +1,50 @@
+.location-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .location-title {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .container-map{
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: white; 
+    width:100%;
+    max-height: 9uvh;
+  }
+  .map-container {
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  @media (max-width: 1500px) {
+    .location-title {
+      font-size: 24px;
+    }
+    .loca-text{
+      margin-top: -10px;
+      margin-bottom: 20px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+  
+  }
+  .location-title{
+    margin-bottom: -20px;
+  }  
+  .loca-text{
+    margin-top: 10px;
+    font-size: 35px;
+    font-weight: bold;
+  }

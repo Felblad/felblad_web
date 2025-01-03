@@ -1,0 +1,308 @@
+/* Base styles */
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
+/* pays.css */
+
+/* Container for all countries */
+.pays-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: -10px;
+  font-family: 'Lato', sans-serif;
+  min-height: 9vh;
+  
+}
+
+/* Click Container */
+.click-container {
+  font-size: 3em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 1em;
+  margin-top: -15%;
+  width: 100%;
+  max-width: 40em;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  box-sizing: border-box;
+  transform: translateX(-50%);
+  position: relative;
+  left: 20%;
+  top: -60px;
+  bottom: 20px;
+
+}
+
+.click-text {
+  font: 700 2.5em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aitf 80s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  
+}
+
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* List container */
+.list-container-home {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: -150px;
+  max-height:50%;
+  padding : 20px 20px 10px 10px;
+}
+
+/* Individual list item container */
+.list-item-container {
+  position: relative;
+  width: 200px; /* Bigger size */
+  height: 200px; /* Bigger size */
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 35px;
+  border-radius: 15px;
+  overflow: hidden;
+  left:-20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced box-shadow */
+}
+
+/* Style for active and inactive states */
+.list-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Enhanced box-shadow */
+  transition: transform 0.3s ease;
+}
+
+.list-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.list-item .title {
+  font-size: 20px; /* Bigger title */
+  margin-top: 15px; /* Space around the title */
+  font-weight: bold;
+  text-align: center;
+  color: #333; /* Darker text for contrast */
+}
+
+/* Active state: cursor changes to pointer */
+.list-item.active {
+  cursor: pointer;
+}
+
+/* Hover effect */
+.list-item-container:hover .list-item {
+  transform: scale(1.1);
+}
+
+/* Inactive state: blurry effect with "Coming Soon" text */
+.list-item.inactive {
+  filter: blur(2px);
+  position: relative;
+}
+
+/* Styling the "Coming Soon" text */
+.coming-soon {
+  position: relative;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  top:50%;
+  z-index: 9999;
+}
+
+/* Adjusting container sizes */
+.list-item-container {
+  width: 230px; /* Slightly larger container */
+  height: 320px; /* Slightly larger container */
+}
+
+/* Styling for the white background on hover */
+.list-item-container:hover {
+  background-color: #fff;
+}
+
+
+/* Click Container */
+.click-container {
+  font-size: 50px ;
+  font-weight: bold ;
+  text-align: center;
+  margin: 0;
+  padding: 1em;
+  margin-top: 4%;
+  margin-bottom: 2%;
+  margin-left: 55%;
+  transform: translate(-50%, -18%);
+  width: 100%;
+  max-width: 40em;
+  border: 4px double rgba(255, 255, 255, 0.25);
+  border-width: 4px 0;
+  box-sizing: border-box;
+  animation: aitf 80s linear infinite;
+
+}
+
+.click-text {
+  font: 700 2.5em/1 "Oswald", sans-serif;
+  letter-spacing: 0;
+  padding: 0.25em 0 0.325em;
+  display: block;
+  margin: 0 auto;
+  text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: aitf 80s linear infinite;
+  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes aitf {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+
+/* Specific animations for each text */
+@keyframes wavy-1 {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes wavy-2 {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 10px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+/* Assign unique animations to each text */
+.wavy-text-1 .wavy-text-1-letter {
+  animation-name: wavy-1;
+}
+
+.wavy-text-2 .wavy-text-2-letter {
+  animation-name: wavy-2;
+}
+
+/* Adjusting list-container-home for mobile devices to stack vertically */
+@media (max-width: 600px) {
+  .list-container-home {
+    flex-direction: column; /* Stack items vertically */
+    margin-top: 0;
+    min-width: 200px; /* Remove max height for better display on smaller screens */
+  }
+
+  /* Adjusting the click-container for smaller font sizes and better positioning */
+  .click-container {
+    font-size: 2em; /* Reduce font size for mobile */
+    top: 10%;
+    width: 90%;
+    padding: 1em 0;
+  }
+
+  /* Adjusting list-item-container to be a bit smaller for mobile */
+  .list-item-container {
+    width: 400px; /* Smaller width for mobile */
+    height: 550px; /* Adjust height for better fit */
+    margin-bottom: 15px; /* Reduce bottom margin */
+  }
+
+  .list-item img {
+    width: 100%; /* Keep image width responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Ensure title text is responsive */
+  .list-item .title {
+    font-size: 16px; /* Smaller font size for mobile */
+  }
+
+  .coming-soon {
+    font-size: 16px; /* Adjust the size for the "Coming Soon" text */
+  }
+}
+
+@media (max-width: 480px) {
+  .click-container {
+    font-size: 1.5em; /* Further reduce font size */
+    margin-top: 20%;
+    margin-bottom: -10%;
+    width: 95%;
+    padding: 0.8em 0;
+  }
+.pays-container{
+  max-width:768px; 
+
+
+}
+  .list-item-container {
+    width: 240px; 
+    height: 320px; 
+    margin-left:40px
+  }
+
+  .list-item .title {
+    font-size: 14px; /* Smaller font size for smaller screens */
+  }
+
+  .coming-soon {
+    font-size: 14px; /* Adjust for small screen readability */
+  }
+
+  /* Adjust the overall layout */
+  .pays-container {
+    padding: 0; /* Ensure no unnecessary padding */
+    min-height: auto;
+    max-width:480px; /* Let the container adjust its height based on content */
+  }
+}
+
+

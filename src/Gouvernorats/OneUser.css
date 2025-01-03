@@ -1,0 +1,241 @@
+.container {
+    display: flex;
+  }
+  
+  .left-section, .right-section {
+    width: 20%;
+    padding: 10px;
+  }
+  
+  .middle-section {
+    width: 60%;
+    padding: 10px;
+  }
+  
+  .carousel {
+    position: relative;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 350px;
+  }
+  
+  .carousel-buttons {
+    position: absolute;
+    top:0%;
+    height: 95%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .carousel-button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .details {
+    margin-top: 20px;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+
+  }
+  
+  .logo {
+    position: relative;
+    width: 80px;
+    height: auto;
+    margin-top:-200px;
+    margin-left:10px;
+    margin-right:10px;
+
+  }  
+  .logo img{
+    margin-top:-200px;
+    box-shadow: 8px #383535;
+  }
+  
+  .venue-name {
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 60px;
+    width:150px
+  }
+  
+  .venue-details p {
+    font-size: 18px;
+    margin-left: 20px;
+  }
+  
+  .categories {
+    display: flex;
+    flex-direction:column;
+    margin-top: 20px;
+    padding-bottom:10px;
+    margin-left: -100px;
+    
+  }
+  
+  .category {
+    margin-right: 30px;
+    padding: 5px;
+    padding-bottom:10px;
+
+  }
+
+  .category-icon{
+    margin-right:20px;
+    margin-bottom:10px
+  }
+  .line{
+    margin-top: 20px
+  }
+  .map{
+    margin-left: 15%;
+    margin-top: 20px;
+
+  }
+  .map-container {
+    margin-top: 25px;
+    margin-left: 20px;
+    max-width:450px;
+    max-height:450px;
+  }
+  
+  .description {
+    margin-top: 20px;
+  }
+  
+  .services {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping of services */
+    margin-top: 20px;
+  }
+  
+  .service {
+    width: 48%; /* Each service takes up 48% of the container width, allowing two per row */
+    margin-right: 2%; /* Small margin for spacing between services */
+    margin-bottom: 20px; /* Space between rows */
+    display:flex;
+    flex-direction:row;
+    padding:10px 10px
+  }
+
+
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+    margin-left:67%;
+    cursor: pointer;
+  }
+  
+  .ad {
+    background-color: #f0f0f0;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  
+  svg{
+    margin-left:10px
+  }
+  hr{
+    margin-left: 18px;
+  }
+  /* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    width: 100%;
+    padding: 0;
+  }
+
+  .middle-section {
+    width: 100%;
+  }
+
+  .ad {
+    display: none; /* Hide the ads on mobile */
+  }
+
+  .map {
+    margin-left: 0; /* Adjust map position */
+    margin-top: 20px; /* Add space above map */
+  }
+
+  .logo-container {
+    margin-left: 0;
+    margin-top: 60%;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .venue-name {
+    margin-left: 0;
+    margin-top: 20px;
+    font-size: 20px;
+  }
+
+  .venue-details  {
+    margin-left: 100px;
+    font-size: 16px;
+    width: 53%;
+  }
+
+  .venue-details p {
+    margin-left: 0px;
+    font-size: 16px;
+  }
+  hr{
+    margin-left: 0px;
+  }
+
+  .categories {
+    margin-left: -100px;
+  }
+
+  .category {
+    margin-right: 0;
+    padding: 5px 0;
+  }
+
+  .category-icon {
+    margin-right: 10px;
+  }
+
+  .social-icons {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .service {
+    width: 100%; /* Full width for services on mobile */
+    margin-right: 0;
+  }
+  .logo{ 
+    position:relative;
+    top:90px;
+    right:100px
+  }
+  .left-section,
+  .right-section{
+    display: none;
+  }
+}
