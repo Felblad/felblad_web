@@ -2,7 +2,7 @@ import  React,{useState} from "react";
 import { FaArrowLeft, FaArrowRight, FaPhoneAlt, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import './OneUser.css'; 
 import Footer from'../Footer'; 
-
+import { FaTimes } from "react-icons/fa";
 const sallesDeFetes = [
     {
       name: "Le Grand Palais",
@@ -165,130 +165,178 @@ const sallesDeFetes = [
       ]
     }
   ];
+  const Carousel = ({ images }) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPopupOpen, setIsPopupOpen] = useState(false); 
+    const [popupImage, setPopupImage] = useState('');  
+    const prevSlide = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+    };
+  
+    const nextSlide = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+    };
+  
+    const openPopup = (image) => {
+      setPopupImage(image);
+      setIsPopupOpen(true); // Open the popup
+    };
+  
+    const closePopup = () => {
+      setIsPopupOpen(false); // Close the popup
+      setPopupImage(''); // Clear the image
+    };
+  
+    return (
+      <div className="carousel">
+        <img
+          src={images[currentIndex]}
+          alt="Carousel"
+          className="carousel-image"
 
-const Carousel = ({ images }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
-  };
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  return (
-    <div className="carousel">
-      <img src={images[currentIndex]} alt="Carousel" className="carousel-image" />
-      <div className="carousel-buttons">
-        <button onClick={prevSlide} className="carousel-button">
-          <FaArrowLeft />
-        </button>
-        <button onClick={nextSlide} className="carousel-button">
-          <FaArrowRight />
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const ServiceList = ({ services }) => {
-  return (
-    <div className="services">
-      {services.map((service, index) => (
-        <div className="service" key={index}>
-          <span className="category-icon"><FaPhoneAlt /></span>
-          <div>
-            <h4>{service.name}</h4>
-            <p>{service.description}</p>
-          </div>
+        />
+        <div className="carousel-buttons" onClick={() => openPopup(images[currentIndex])} >
+          <button onClick={prevSlide} className="carousel-button">
+            <FaArrowLeft />
+          </button>
+          <button onClick={nextSlide} className="carousel-button">
+            <FaArrowRight />
+          </button>
         </div>
-      ))}
-    </div>
-  );
-};
-
-const OneUser = () => {
-  const venue = sallesDeFetes[0]; // Change to loop over the list if needed
-
-  return (
-    <div className="oneUser-container">
-    <div className="container">
-      <div className="left-section">
-        {/* Left Ad Section */}
-        <div className="ad">Ad Section</div>
+  
+        {/* Popup for the clicked image */}
+        {isPopupOpen && (
+          <div className="image-popup">
+            <div className="popup-overlay" onClick={closePopup}></div>
+            <div className="popup-content">
+              <img src={popupImage} alt="Popup" className="popup-image" />
+              <button className="close-popup" onClick={closePopup}>
+                <FaTimes />
+              </button>
+            </div>
+          </div>
+        )}
       </div>
-
-      <div className="middle-section">
-        {/* Carousel */}
-        <Carousel images={venue.images_url} />
-
-        <div className="details">
-          {/* Logo and Details */}
-          <div className="logo-container">
-            <img src={venue.logo_url} alt="Logo" className="logo" />
-            <div className="venue-details">
-              <h2 className="venue-name">{venue.name}</h2>
-              <p>{venue.location}</p>
-              <hr />
-              <div className="categories">
-                
-                {venue.categories.map((category, index) => (
-                  <div key={index} className="category">
-                    <span className="category-icon"><FaPhoneAlt /></span>
-                    <span>{category}</span>
-                    <hr className="line"/>
+    );
+  };
+  
+  const ServiceList = ({ services }) => {
+    return (
+      <div className="services">
+        {services.map((service, index) => (
+          <div className="service" key={index}>
+            <span className="category-icon"><FaPhoneAlt /></span>
+            <div>
+              <h4>{service.name}</h4>
+              <p>{service.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+  
+  const OneUser = () => {
+    const venue = sallesDeFetes[0]; // Change to loop over the list if needed
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [popupImage, setPopupImage] = useState('');
+  
+    const openPopup = (image) => {
+      setPopupImage(image);
+      setIsPopupOpen(true);
+    };
+  
+    const closePopup = () => {
+      setIsPopupOpen(false);
+      setPopupImage('');
+    };
+  
+    return (
+      <div className="oneUser-container">
+        <div className="container">
+          <div className="left-section">
+            <div className="ad">Ad Section</div>
+          </div>
+  
+          <div className="middle-section">
+            <Carousel images={venue.images_url} />
+  
+            <div className="details">
+              <div className="logo-container">
+                <img
+                  src={venue.logo_url}
+                  alt="Logo"
+                  className="logo"
+                  onClick={() => openPopup(venue.logo_url)} // Open popup when logo is clicked
+                />
+                <div className="venue-details">
+                  <h2 className="venue-name">{venue.name}</h2>
+                  <p>{venue.location}</p>
+                  <hr />
+                  <div className="categories">
+                    {venue.categories.map((category, index) => (
+                      <div key={index} className="category">
+                        <span className="category-icon"><FaPhoneAlt /></span>
+                        <span>{category}</span>
+                        <hr className="line"/>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+                <div className="map">
+                  <div className="map-container">
+                    <iframe
+                      src={`https://www.google.com/maps?q=${venue.address}&output=embed`}
+                      title="Venue Location"
+                      width="100%"
+                      height="300"
+                      frameBorder="0"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+              </div>
+  
+              <div className="description">
+                <p>Description of the place...</p>
+              </div>
+  
+              <ServiceList services={venue.services} />
+  
+              <div className="contact">
+                <div className="contact-info">
+                  <h3>Contact Client</h3>
+                  <div className="social-icons">
+                    <FaPhoneAlt />
+                    <FaFacebook />
+                    <FaInstagram />
+                    <FaTwitter />
+                  </div>
+                </div>
               </div>
             </div>
-             {/* Map */}
-          <div className="map">
-            <div className="map-container">
-              <iframe
-                src={`https://www.google.com/maps?q=${venue.address}&output=embed`}
-                title="Venue Location"
-                width="100%"
-                height="300"
-                frameBorder="0"
-                allowFullScreen
-              />
-            </div>
           </div>
-          </div>
-
-         
-
-          {/* Description */}
-          <div className="description">
-            <p>Description of the place...</p>
-          </div>
-
-          {/* Services */}
-          <ServiceList services={venue.services} />
-
-          {/* Contact */}
-          <div className="contact">
-            <div className="contact-info">
-              <h3>Contact Client</h3>
-              <div className="social-icons">
-                <FaPhoneAlt />
-                <FaFacebook />
-                <FaInstagram />
-                <FaTwitter />
-                
-              </div>
-            </div>
+  
+          <div className="right-section">
+            <div className="ad">Ad Section</div>
           </div>
         </div>
+  
+        {/* Popup for user image */}
+        {isPopupOpen && (
+          <div className="image-popup-logo">
+            <div className="popup-overlay-logo" onClick={closePopup}></div>
+            <div className="popup-content-logo">
+              <img src={popupImage} alt="Popup" className="popup-image-logo" />
+              <button className="close-popup-logo" onClick={closePopup}>
+                <FaTimes />
+              </button>
+            </div>
+          </div>
+        )}
+        <Footer/>
       </div>
-
-      <div className="right-section">
-        {/* Right Ad Section */}
-        <div className="ad">Ad Section</div>
-      </div>
-    </div>
-      <Footer/>
-    </div>
-  );
-};
-
-export default OneUser;
+    );
+  };
+  
+  export default OneUser;

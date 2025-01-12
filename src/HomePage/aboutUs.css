@@ -35,6 +35,8 @@
   position: absolute;
   z-index: 10;
   width:100% ;
+  word-wrap: break-word; /* Ensures long words break to the next line */
+  white-space: pre-line;} /* Ensures normal wrapping of text *
 }
 
 /* Make sure the text scales responsively */
@@ -42,6 +44,9 @@
   font-size: 18px;
   line-height: 1.5;
   color: #fffdfd;
+  padding: 8px;
+  word-wrap: break-word; /* Ensure long words break if necessary */
+  white-space: pre-line; /* Ensures the `\n` are respected as new lines */
 }
 
 .char {
@@ -165,16 +170,19 @@
 /*  Queries for responsiveness */
 @media (max-width: 768px) {
   .center-text-container {
-    max-width: 90%;
+    max-width: 80%;
+  max-height: 100%;
   }
 
   .center p {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .arrow-prev{
     position : absolute;
-    font-size: 50px;
+    font-size: 20px;
+    bottom: 7px;
+    top: -10px;
     left:0px;
     color:white;
     font-family: 'Merienda', cursive;
@@ -185,8 +193,10 @@
   }
   .arrow-next {
     position : absolute;
-    font-size: 40px;
+    font-size: 20px;
     left:35px;
+    top: -10px;
+    bottom: 7px;
     color:white;
     font-family: 'Merienda', cursive;
     animation-name:glow;
@@ -194,15 +204,18 @@
     animation-iteration-count:infinite;
     animation-direction:alternate;
   }
+  .arrow-next{
+    margin-top: 20%;
+  }
+  .arrow-prev{
+    margin-top: 20%;
+  }
 }
 @media (max-width: 480px) {
   .center p {
-    font-size: 14px;
+    font-size: 11px;
   }
 
-  .center-text-container {
-    max-width: 95%;
-  }
   .about-us-title {
     color: white;
     margin-top: 10%;
@@ -215,7 +228,9 @@
     animation-iteration-count:infinite;
     animation-direction:alternate;}
 }
-
+.carousel-navigation{
+top: 90%;
+}
 
 .about-us-title{
   color: white;
@@ -247,25 +262,25 @@ margin-left:-50px
   display:flex;
   flex-direction:row;
   position :relative;
-  left:47%;
-  top:70%;
+  transform: translateX(0%); /* Ensure it's perfectly centered */
+  top:80%;
   color: white;
+  z-index: 9999;
 
 }
 @media (max-width: 768px) {
   .carousel-navigation {
-    /* You can modify the left/top positioning for tablets as needed */
-    left: 90%;  /* Center arrows for tablets */
-    top: 70%;   /* Adjust to stay below the text */
+    left: -7%;  /* Center arrows for tablets */
+    top: 80%;   /* Adjust to stay below the text */
   }
 }
 
 @media (max-width: 480px) {
   .carousel-navigation {
     /* Adjust positioning for phones */
-    left: 90%;  /* Ensure it stays centered */
-    top: 90%;   /* Move arrows further down */
-    transform: translateX(-50%); /* Ensure it's perfectly centered */
+    left: -20%;  /* Ensure it stays centered */
+    top: 110%;   /* Move arrows further down */
+    transform: translateX(-50%); /* Ensure it's perfectly centered */   
   }
 }
 

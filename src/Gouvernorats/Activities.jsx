@@ -634,7 +634,7 @@ const gouvernorats = [
         <div className="container-column">
         <div className="container-cat">
             {/* Left Section (Delegations List) */}
-            <div className="left-section">
+            <div className="left-section-cat">
             <div className="gouvernaurat-container-cat">
                     <h3 className="gouvernaurat-title-cat">{Object.keys(gouvernorats[0])}</h3>
                     <ul className="delegation-list-cat">
@@ -694,7 +694,7 @@ const gouvernorats = [
             </div>
 
             {/* Right Section (Empty for Ads) */}
-            <div className="right-section">
+            <div className="right-section-cat">
                 {/* Placeholder for right ad */}
             </div>
             

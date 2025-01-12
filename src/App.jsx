@@ -6,6 +6,7 @@ import { BsQuestionSquareFill } from "react-icons/bs";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BiPhoneCall } from "react-icons/bi";
 import Logo from "./public/logo.jpg";
+import Logo1 from "./public/logopng.png";
 import { MdViewList } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
@@ -81,12 +82,12 @@ const App = () => {
       {/* Sidebar (Desktop Version) */}
       <div className={`sidebar ${isSidebarExpanded ? "expanded" : "collapsed"}`}>
         <div className="logo-container" onClick={()=>{navigate("/", activeSection={activeSection} ,isSidebarExpanded={isSidebarExpanded})}}>
-          <img src={Logo} alt="Logo" className="logo" />
+          <img src={Logo1} alt="Logo" className="logoo" />
         </div>
         <div className="icons-container">
           <button className="icon" onClick={toggleSidebar}>
             {isSidebarExpanded ? <FaList /> : <PiCardsThreeBold />}
-            {isSidebarExpanded && <span className="icon-text">Cabillot</span>}
+            {isSidebarExpanded && <span className="icon-text"></span>}
           </button>
           <button
             className={`icon ${activeSection === "home" ? "active" : ""}`}
@@ -122,7 +123,7 @@ const App = () => {
       {/* Mobile Navbar */}
       <div className={`mobile-navbar ${isMobileNavbarOpen ? "open" : ""}`}>
         <div className="mobile-navbar-header">
-          <img src="/logopng.png" alt="Logo" className="logo1" onClick={()=>{navigate("/", {activeSection:activeSection} ,{isSidebarExpanded:isSidebarExpanded})}} />
+          <img src={Logo1} alt="Logo" className="logo1" onClick={()=>{navigate("/", {activeSection:activeSection} ,{isSidebarExpanded:isSidebarExpanded})}} />
           <div className="mobile-svgs">
             <div onClick={toggleSearchPopup} className="mobile-search" >
               <IoMdSearch className="mobile-svg-search" />

@@ -231,7 +231,17 @@
 .wavy-text-2 .wavy-text-2-letter {
   animation-name: wavy-2;
 }
-
+@media (max-width: 768px) {
+  .click-container {
+    top: 0em;
+    bottom: 1em;
+    width: 100%;
+    padding: 1em 0;
+  }
+  .list-container-home {
+    margin-top: -100px;
+  }
+}
 /* Adjusting list-container-home for mobile devices to stack vertically */
 @media (max-width: 600px) {
   .list-container-home {
@@ -244,8 +254,10 @@
   .click-container {
     font-size: 2em; /* Reduce font size for mobile */
     top: 10%;
-    width: 90%;
+    width: 100%;
     padding: 1em 0;
+    top: 0.5em;
+    bottom: -0.5em;
   }
 
   /* Adjusting list-item-container to be a bit smaller for mobile */
@@ -253,6 +265,7 @@
     width: 400px; /* Smaller width for mobile */
     height: 550px; /* Adjust height for better fit */
     margin-bottom: 15px; /* Reduce bottom margin */
+    margin-left: 7%;
   }
 
   .list-item img {

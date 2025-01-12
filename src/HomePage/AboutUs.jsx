@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './aboutUs.css';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -9,7 +10,7 @@ const Carousel = () => {
       text: `L’aspect économique :
 Le lancement de notre site web Felblad.com va contribuer à maitriser l'art de l'information, c'est un
 guide virtuel vers des liens utiles pour les internautes afin de donner suite à leurs besoins.
-Notre site garantit la fiabilité, la certitude des donnés afin de créer des réseaux entre différents acteurs
+Notre site garantit la fiabilité, la certitude des donnés afin de créer des réseaux entre différents acteurs   
 économique, industriels, touristiques ... un bénéfice pour booster l'économie du pays, le commerce et
 les relations internationales, un vrai itinéraire vers le monde entier.
 Notre site web permet de projeter la lumière sur certaines zones moins connues du pays, d'augmenter
@@ -51,6 +52,15 @@ Felblad.com permet nous clients de se faire connaitre leurs sociétés et leurs 
     setCurrentSlide((prevSlide) => (prevSlide === slides.length - 1 ? 0 : prevSlide + 1));
   };
 
+  // Convert '\n' in text to <br /> for proper rendering of line breaks
+  const getTextWithLineBreaks = (text) => {
+    return text.split('\n').map((line, index) => (
+      <span key={index}>
+        {line}
+        <br />
+      </span>
+    ));
+  };
   useEffect(() => {
     const text = document.getElementById('text');
     if (text) {
@@ -70,7 +80,7 @@ Felblad.com permet nous clients de se faire connaitre leurs sociétés et leurs 
   return (
     <div className="main-container">
       <div className="area">
-        <ul className="circles">
+      <ul className="circles">
           <li className="circle-1"></li>
           <li className="circle-2"></li>
           <li className="circle-3"></li>
@@ -82,23 +92,24 @@ Felblad.com permet nous clients de se faire connaitre leurs sociétés et leurs 
           <li className="circle-9"></li>
           <li className="circle-10"></li>
         </ul>
-       
-        <div className="center-text-container">   
-            <div className="centered" >
-<h2 className="about-us-title">About Us</h2>
-</div>   
-          <div className="center">
-            <p id="text">{slides[currentSlide].text}</p>
+        
+        <div className="center-text-container">
+          <div className="centered">
+            <h2 className="about-us-title">A Propos Felblad</h2>
           </div>
-        </div>
+          <div className="center">
+            {/* Render the text with line breaks */}
+            <p>{getTextWithLineBreaks(slides[currentSlide].text)}</p>
+          </div>
+        
 
         <div className="carousel-navigation">
           <div className="arrow-prev" onClick={handlePrev}>
-            <IoIosArrowBack/>
+            <IoIosArrowBack />
           </div>
           <div className="arrow-next" onClick={handleNext}>
-            <IoIosArrowForward/>
-          </div>
+            <IoIosArrowForward />
+          </div></div>
         </div>
       </div>
     </div>
