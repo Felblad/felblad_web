@@ -179,17 +179,17 @@ const sallesDeFetes = [
   
     const openPopup = (image) => {
       setPopupImage(image);
-      setIsPopupOpen(true); // Open the popup
+      setIsPopupOpen(true); 
     };
   
     const closePopup = () => {
-      setIsPopupOpen(false); // Close the popup
-      setPopupImage(''); // Clear the image
+      setIsPopupOpen(false); 
+      setPopupImage(''); 
     };
   
     return (
       <div className="carousel">
-        <img
+        <img 
           src={images[currentIndex]}
           alt="Carousel"
           className="carousel-image"
@@ -237,7 +237,7 @@ const sallesDeFetes = [
   };
   
   const OneUser = () => {
-    const venue = sallesDeFetes[0]; // Change to loop over the list if needed
+    const venue = sallesDeFetes[0]; 
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [popupImage, setPopupImage] = useState('');
   
@@ -267,7 +267,7 @@ const sallesDeFetes = [
                   src={venue.logo_url}
                   alt="Logo"
                   className="logo"
-                  onClick={() => openPopup(venue.logo_url)} // Open popup when logo is clicked
+                  onClick={() => openPopup(venue.logo_url)} 
                 />
                 <div className="venue-details">
                   <h2 className="venue-name">{venue.name}</h2>

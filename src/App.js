@@ -1,23 +1,25 @@
 import React, { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css"; // Ensure to update styles in this file
-import HomePage from "./HomePage/HomePage"; // Import the HomePage component
-import Gouvernorats from "./Gouvernorats/Gouvernorats.jsx"; // Import the Gouvernorats component
-import SousCategorie from "./Gouvernorats/SousCategorie.jsx"; // Import the Gouvernorats component
-import Activities from "./Gouvernorats/Activities.jsx"; // Import the Activities component
-import OneUser from "./Gouvernorats/OneUser.jsx"; // Import the OneUser component
-import Users from "./Gouvernorats/Users"; // Import the OneUser component
-import Search from "./Gouvernorats/Search.jsx"; // Import the Search component
+import HomePage from "./HomePage/HomePage"; 
+import Gouvernorats from "./Gouvernorats/Gouvernorats.jsx"; 
+import SousCategorie from "./Gouvernorats/SousCategorie.jsx"; 
+import Activities from "./Gouvernorats/Activities.jsx"; 
+import OneUser from "./Gouvernorats/OneUser.jsx"; 
+import Users from "./Gouvernorats/Users"; 
+import Search from "./Gouvernorats/Search.jsx"; 
+import OneUserUpdate  from "./Gouvernorats/Update.jsx";
 import SideBar from "./App.jsx";
+import Connect from "./HomePage/Login";
 
 const AppContent = () => {
 
   return (
     <div className="app">
       {/* Sidebar (Desktop Version) */}
-
+<div className="sidebar">
  <SideBar />
-
+</div>
 
       {/* Main Content */}
       <div className="content">
@@ -29,6 +31,8 @@ const AppContent = () => {
           <Route path="/OneUser" element={<OneUser />} />
           <Route path="/SousCategories" element={<SousCategorie />} />
           <Route path="/Search" element={<Search />} />
+          <Route path="/connect" element={<Connect />} />
+          <Route path="/update" element={<OneUserUpdate />} />
         </Routes>
       </div>
     </div>

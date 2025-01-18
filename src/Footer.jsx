@@ -9,7 +9,7 @@ const FooterComponent = () => {
         <h3>Felblad Info</h3>
         <ul>
           <li><a href="mailto:suppoert@felblad.com">Email: support@felblad.com</a></li>
-          <li><a href="mailto:reclamation@felblad.com">Email: reclamation@felblad.com</a></li>
+          <li><a href="mailto:dg@felblad.com"> dg@felblad.com</a></li>
           <li><a href="#services">Phone: +216 98 169 744</a></li>
         </ul>
       </div>
@@ -28,6 +28,10 @@ const FooterComponent = () => {
         <li><a href="https://www.facebook.com/profile.php?id=61571253933313">Facebook</a></li>
           <li><a href="https://www.instagram.com/felblad.bigdata/">Instagram</a></li>
           <li><a href="https://www.linkedin.com/in/felblad-platform-4aa8b5337/">LinkedIN</a></li>
+          <li><a href="https://www.linkedin.com/in/felblad-platform-4aa8b5337/">Tiktok</a></li>
+          <li><a href="https://www.linkedin.com/in/felblad-platform-4aa8b5337/">X</a></li>
+          <li><a href="https://www.linkedin.com/in/felblad-platform-4aa8b5337/">Snapchat</a></li>
+
         </ul>
        <div className="footer">
         <p>&copy; 2025 Fel Blad. All rights reserved.</p>

@@ -23,7 +23,6 @@ const LocationComponent = () => {
           style={{
             overflow: 'hidden',
             background: 'none !important',
-            maxWidth: '560px',
             width: '400%',
             maxWidth: '1520px', 
           }}

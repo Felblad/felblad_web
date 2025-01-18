@@ -21,11 +21,11 @@ const ContactUsComponent = () => {
                   <FaFacebook className="social-icon-contact" />
                 </a>
               </li>
-              {/* <li className="social-media-item-contact">
+              <li className="social-media-item-contact">
                 <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
                   <FaTwitter className="social-icon-contact" />
                 </a>
-              </li> */}
+              </li>
               <li className="social-media-item-contact">
                 <a href="https://www.instagram.com/felblad.bigdata/" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="social-icon-contact" />
@@ -36,11 +36,11 @@ const ContactUsComponent = () => {
                   <FaLinkedin className="social-icon-contact" />
                 </a>
               </li>
-              <li className="social-media-item-contact">
+              {/* <li className="social-media-item-contact">
                 <a href="mailto:support@felblad.com" target="_blank" rel="noopener noreferrer">
                   <FaGoogle className="social-icon-contact" />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

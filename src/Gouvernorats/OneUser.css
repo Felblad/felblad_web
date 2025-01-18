@@ -5,9 +5,12 @@
   .left-section, .right-section {
     width: 20%;
     padding: 10px;
+    margin-top: 50px;
+
   }
   
   .middle-section {
+    margin-top: 50px;
     width: 60%;
     padding: 10px;
   }
@@ -36,6 +39,7 @@
     color: white;
     border: none;
     padding: 10px;
+    width: 100%;
     cursor: pointer;
   }
   
@@ -182,7 +186,7 @@ display: none;
 
   .logo-container {
     margin-left: 0;
-    margin-top: 60%;
+    margin-top: 150px;
     flex-direction: column;
     width: 100%;
   }
@@ -202,9 +206,9 @@ display: none;
     position: relative;
     width: 80px;
     height: auto;
-    margin-top:-200px;
-    margin-left:-20%;
-    margin-right:10px;
+    top:-200px;
+    left:-30%;
+    right:10px;
   }
 
   .venue-details p {
@@ -340,7 +344,10 @@ display: none;
   z-index: 1000;
 }
 @media (min-width: 768px) and (max-width: 1200px) {
-
+.logo-container{
+  margin-left: 20%;
+  margin-right: 20%;
+}
 
   .left-section, .right-section {
 display: none;
@@ -368,13 +375,4 @@ display: none;
 }
 }
 
-@media (max-width: 587px){
-  .logo{
-    position: relative;
-    width: 80px;
-    height: auto;
-    margin-top:-200px;
-    margin-left:-40px;
-    margin-right:10px;
-  }
-}
+ 

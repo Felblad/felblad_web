@@ -51,10 +51,6 @@ const App = () => {
     console.log(`Searching for: ${country}, ${region}, ${category}, ${activity}`);
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarExpanded(!isSidebarExpanded);
-  };
-
   const toggleMobileNavbar = () => {
     setIsMobileListOpen(!isMobileListOpen); 
   };
@@ -62,6 +58,7 @@ const App = () => {
   const goToSection = (section) => {
     setActiveSection(section);
     setIsMobileListOpen(false);
+    navigate("/", { state: { activeSection: section } });
   };
 
   const toggleSearchPopup = () => {
@@ -78,52 +75,59 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      {/* Sidebar (Desktop Version) */}
-      <div className={`sidebar ${isSidebarExpanded ? "expanded" : "collapsed"}`}>
-        <div className="logo-container" onClick={()=>{navigate("/", activeSection={activeSection} ,isSidebarExpanded={isSidebarExpanded})}}>
-          <img src={Logo1} alt="Logo" className="logoo" />
-        </div>
+    <div className="myApp">
+      {/* Navbar (Desktop Version) */}
+      <div className={`navbar`}>
+        <div className="logo-container" onClick={() => { navigate("/",  { state: { activeSection: "home" } }); }}
+        >
+          <img src={Logo1} alt="Logo" className="logo1" /></div>
         <div className="icons-container">
-          <button className="icon" onClick={toggleSidebar}>
-            {isSidebarExpanded ? <FaList /> : <PiCardsThreeBold />}
-            {isSidebarExpanded && <span className="icon-text"></span>}
-          </button>
           <button
             className={`icon ${activeSection === "home" ? "active" : ""}`}
-            onClick={() => goToSection("home")}
+            onClick={() => {navigate("/"); 
+              goToSection("home")}}
           >
-            <FaHome />
-            {isSidebarExpanded && <span className="icon-text">Acceuil</span>}
+
+           <span className="icon-text">Acceuil</span>
           </button>
           <button
             className={`icon ${activeSection === "about" ? "active" : ""}`}
             onClick={() => goToSection("about")}
           >
-            <BsQuestionSquareFill />
-            {isSidebarExpanded && <span className="icon-text">A Propos</span>}
+
+            <span className="icon-text">A Propos</span>
           </button>
           <button
             className={`icon ${activeSection === "map" ? "active" : ""}`}
             onClick={() => goToSection("map")}
           >
-            <FaMapLocationDot />
-            {isSidebarExpanded && <span className="icon-text">Localisation</span>}
+
+            <span className="icon-text">Localisation</span>
           </button>
           <button
             className={`icon ${activeSection === "contact" ? "active" : ""}`}
             onClick={() => goToSection("contact")}
           >
-            <BiPhoneCall />
-            {isSidebarExpanded && <span className="icon-text">Contacter Nous</span>}
+             <span className="icon-text">Contacter Nous</span>
           </button>
+          <button
+  className={`icon ${activeSection === "connect" ? "active" : ""}`}
+  onClick={() => navigate("/connect")}
+>
+             <span className="icon-text">Se Connecter</span>
+          </button>
+        </div>
+        <div>
+        <div onClick={toggleLanguageDropdown}>
+              <CiGlobe className="mobile-svg-lang" />
+            </div>
         </div>
       </div>
 
       {/* Mobile Navbar */}
       <div className={`mobile-navbar ${isMobileNavbarOpen ? "open" : ""}`}>
         <div className="mobile-navbar-header">
-          <img src={Logo1} alt="Logo" className="logo1" onClick={()=>{navigate("/", {activeSection:activeSection} ,{isSidebarExpanded:isSidebarExpanded})}} />
+          <img src={Logo1} alt="Logo" className="logo1"onClick={()=>{navigate("/", {activeSection:"home"} )}} />
           <div className="mobile-svgs">
             <div onClick={toggleSearchPopup} className="mobile-search" >
               <IoMdSearch className="mobile-svg-search" />
@@ -161,6 +165,12 @@ const App = () => {
           >
             Contact
           </button>
+          <button
+            className={`mobile-navbar-item ${activeSection === "connect" ? "active" : ""}`}
+            onClick={() => navigate("/connect")}
+          >
+            Se Connecter
+          </button>
         </div>
       </div>
 
@@ -185,43 +195,43 @@ const App = () => {
             <h2 className="search-title">Search</h2>
             <div className="search-container">
               <div className="search-section">
-                <label htmlFor="country">Country</label>
+                <label htmlFor="country">Pays</label>
                 <input
                   type="text"
                   id="country"
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
-                  placeholder="Enter country"
+                  placeholder="Enrer le Pays"
                 />
               </div>
               <div className="search-section">
-                <label htmlFor="region">Region</label>
+                <label htmlFor="region">Ville</label>
                 <input
                   type="text"
                   id="region"
                   value={region}
                   onChange={(e) => setRegion(e.target.value)}
-                  placeholder="Enter region"
+                  placeholder="Entrer la Ville"
                 />
               </div>
               <div className="search-section">
-                <label htmlFor="category">Category</label>
+                <label htmlFor="category">Secteur</label>
                 <input
                   type="text"
                   id="category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  placeholder="Enter category"
+                  placeholder="Entrer le Secteur"
                 />
               </div>
               <div className="search-section">
-                <label htmlFor="activity">Activity</label>
+                <label htmlFor="activity">Services</label>
                 <input
                   type="text"
                   id="activity"
                   value={activity}
                   onChange={(e) => setActivity(e.target.value)}
-                  placeholder="Enter activity"
+                  placeholder="Entrer le Service"
                 />
               </div>
               <button className="search-btn" onClick={handleSearch}>

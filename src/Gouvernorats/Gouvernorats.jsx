@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Use useHistory for React Router v5
+import { useNavigate } from 'react-router-dom'; 
 import './gouvernorats.css'; 
 import Footer from "../Footer";
 
@@ -241,10 +241,9 @@ const gouvernorats = [
 
   
 const Gouvernorats = () => {
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate(); 
 
   const handleGouvernoratClick = (gouvernoratName, gouvernoratData) => {
-    // Navigate to /Categories and pass the selected gouvernorat data
     navigate('/Categories', { state: { gouvernoratName, gouvernoratData } });
     console.log("gouvernoratName",gouvernoratName,  "gouvernoratData",gouvernoratData);
     
@@ -268,7 +267,7 @@ const Gouvernorats = () => {
               <div 
                 key={index} 
                 className="item-container-gouv"
-                onClick={() => handleGouvernoratClick(gouvernoratName, gouvernoratData)} // Add onClick handler
+                onClick={() => handleGouvernoratClick(gouvernoratName, gouvernoratData)} 
               >
                 <div className="image-container-gouv">
                   <img src={imageUrl} alt={gouvernoratName} className="image-gouv" />

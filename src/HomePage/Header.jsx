@@ -20,45 +20,53 @@ function Header() {
 
     alert(`Searching for: ${country}, ${region}, ${category}, ${activity}`);
   };
-
+  const handlePopupOpen= ()=>{
+    return(
+      <div className="popup">
+        <div className="popup-content">
+          <input></input>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className='header-container'>
     <div className="search-container-saerch">
       <div className="search-section-saerch">
-        <label htmlFor="country">Country</label>
+        <label htmlFor="country">Pays</label>
         <input
           type="text"
           id="country"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
-          placeholder="Enter country"
+          placeholder="Enter Un Pays"
         />
       </div>
 
       <div className="search-section-saerch">
-        <label htmlFor="region">Region</label>
+        <label htmlFor="region">Ville</label>
         <input
           type="text"
           id="region"
           value={region}
           onChange={(e) => setRegion(e.target.value)}
-          placeholder="Enter region"
+          placeholder="Entrer Une Ville"
         />
       </div>
 
       <div className="search-section-saerch">
-        <label htmlFor="category">Category</label>
+        <label htmlFor="category">Secteur</label>
         <input
           type="text"
           id="category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          placeholder="Enter category"
+          placeholder="Entrer Un Secteur"
         />
       </div>
 
       <div className="search-section-saerch">
-        <label htmlFor="activity">Activity</label>
+        <label htmlFor="activity">Service</label>
         <input
           type="text"
           id="activity"
@@ -67,6 +75,10 @@ function Header() {
           placeholder="Enter activity"
         />
       </div>
+
+<button className="advanced-search" onClick={handlePopupOpen}>
+        <i className="fas fa-search">+</i> 
+      </button>
 
       <button className="search-btn-saerch" onClick={handleSearch}>
         <i className="fas fa-search"><IoSearch/></i> 
