@@ -162,7 +162,7 @@
     }
 
     .categories-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
+        grid-template-columns: repeat(4, 1fr); /* 2 items per row on smaller screens */
     }
     .left-section-cat{
         display: flex;
@@ -196,8 +196,8 @@
         font-size: 15px;
     }
     .categories-grid {
-        grid-template-columns: repeat(3, 1fr);
-        width: 170%;
+        grid-template-columns: repeat(5, 1fr);
+        width: 100%;
     }
     .delegation-item-cat{
     font-size: 12px;

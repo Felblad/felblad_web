@@ -208,6 +208,16 @@
   font-size: 16px;
   transition: background-color 0.3s;
 }
+.advanced-btn{
+  background-color: #4b4b4b;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
 
 .search-btn:hover {
   background-color: #0056b3;
@@ -299,3 +309,68 @@
     font-size: 14px; /* Smaller font size */
   }
 }
+/* Popup styles */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  z-index: 999; 
+}
+
+/* Popup content */
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  width: 60%;  
+  max-width: 600px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  overflow-y: auto;  
+}
+
+.popup-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.popup-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; /* Limit the height of the list */
+  overflow-y: auto; /* Scrollable list if there are too many items */
+}
+
+.popup-content li {
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.popup-content li:hover {
+  background-color: #f0f0f0;
+}
+
+.popup-content button {
+  background-color: #3819e6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.popup-content button:hover {
+  background-color: #3819e6;
+}
+

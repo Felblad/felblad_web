@@ -11,7 +11,7 @@ import { MdViewList } from "react-icons/md";
 import { IoMdSearch } from "react-icons/io";
 import { CiGlobe } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
-
+import { MdArrowForwardIos,MdArrowBackIos } from "react-icons/md";
 const App = () => {
   const [isSidebarExpanded, setIsSidebarExpanded] = useState(false); // Sidebar is collapsed initially
   const [activeSection, setActiveSection] = useState("home");
@@ -26,6 +26,9 @@ const App = () => {
   const searchPopupRef = useRef(null);
   const languageDropdownRef = useRef(null);
   const navigate=useNavigate()
+  const pages = ["/", "/about", "/map", "/contact", "/connect"];
+  const [currentPageIndex, setCurrentPageIndex] = useState(0);
+  
   // Close dropdowns and popup when clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -51,6 +54,17 @@ const App = () => {
     console.log(`Searching for: ${country}, ${region}, ${category}, ${activity}`);
   };
 
+  const goToPreviousPage = () => {
+    const newIndex = (currentPageIndex - 1 + pages.length) % pages.length;
+    setCurrentPageIndex(newIndex);
+    navigate(pages[newIndex]);  // Navigate to the new page
+  };
+  
+  const goToNextPage = () => {
+    const newIndex = (currentPageIndex + 1) % pages.length;
+    setCurrentPageIndex(newIndex);
+    navigate(pages[newIndex]);  // Navigate to the new page
+  };
   const toggleMobileNavbar = () => {
     setIsMobileListOpen(!isMobileListOpen); 
   };
@@ -129,6 +143,12 @@ const App = () => {
         <div className="mobile-navbar-header">
           <img src={Logo1} alt="Logo" className="logo1"onClick={()=>{navigate("/", {activeSection:"home"} )}} />
           <div className="mobile-svgs">
+          <div >
+              <MdArrowBackIos onClick={goToPreviousPage}  className="" />
+            </div>
+            <div >
+              <MdArrowForwardIos onClick={goToNextPage} className="" />
+            </div>
             <div onClick={toggleSearchPopup} className="mobile-search" >
               <IoMdSearch className="mobile-svg-search" />
             </div>
@@ -234,6 +254,9 @@ const App = () => {
                   placeholder="Entrer le Service"
                 />
               </div>
+              <button className="advanced-btn" onClick={handleSearch}>
+                Advanced Search
+              </button>
               <button className="search-btn" onClick={handleSearch}>
                 Search
               </button>

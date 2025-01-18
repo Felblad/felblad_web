@@ -1,6 +1,8 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaGoogle } from 'react-icons/fa';
+import { FaFacebook , FaInstagram, FaLinkedin, FaGoogle } from 'react-icons/fa';
 import './contactUs.css';
+import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactUsComponent = () => {
   return (
@@ -23,7 +25,7 @@ const ContactUsComponent = () => {
               </li>
               <li className="social-media-item-contact">
                 <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="social-icon-contact" />
+                  <FaXTwitter className="social-icon-contact" />
                 </a>
               </li>
               <li className="social-media-item-contact">
@@ -34,6 +36,11 @@ const ContactUsComponent = () => {
               <li className="social-media-item-contact">
                 <a href="https://www.linkedin.com/in/felblad-platform-4aa8b5337/" target="_blank" rel="noopener noreferrer">
                   <FaLinkedin className="social-icon-contact" />
+                </a>
+              </li>
+              <li className="social-media-item-contact">
+                <a href="https://wa.me/+21698169744" target="_blank" rel="noopener noreferrer">
+                  <FaWhatsapp className="social-icon-contact" />
                 </a>
               </li>
               {/* <li className="social-media-item-contact">
